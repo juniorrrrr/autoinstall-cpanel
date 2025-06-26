@@ -2,7 +2,7 @@
 
 This open-source script automates the full installation of **cPanel & WHM** on **AlmaLinux 8 or 9** upon the first SSH login as root.
 
-Originally developed by [ServerSP](https://serversp.com), an IaaS provider focused on high-performance infrastructure and low-latency connectivity for LATAM and Brazil.
+Developed by [ServerSP](https://serversp.com), an infrastructure provider serving global clients — including a dedicated portal for [Brazil](https://serversp.com.br).
 
 ---
 
