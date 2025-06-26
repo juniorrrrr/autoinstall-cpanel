@@ -1,6 +1,6 @@
 # 🛠️ AutoInstall cPanel for AlmaLinux 8 & 9
 
-This script automatically installs **cPanel & WHM** on **AlmaLinux 8 or 9** during the **first root login** via SSH.
+This script automatically updates the system, installs all required dependencies, and installs **cPanel & WHM** on **AlmaLinux 8 or 9** during the **first root login** via SSH.
 
 > ✅ Ideal for VPS templates, automatic deployments, or provisioning scripts.
 
@@ -10,6 +10,7 @@ This script automatically installs **cPanel & WHM** on **AlmaLinux 8 or 9** duri
 
 - ✅ Detects AlmaLinux 8 or 9
 - ✅ Shows a countdown with **Ctrl+C cancel option**
+- ✅ Updates system packages and installs all required dependencies
 - ✅ Installs cPanel inside an interactive `screen` session
 - ✅ Pauses at the end and **asks for confirmation before reboot**
 - ✅ Cleans up all files and `.bash_profile` entries after execution
@@ -45,6 +46,7 @@ chmod +x /root/.autoinstall-cpanel.sh
 3. Done! On the first SSH login as `root`, the script will:
 - Show a message with a 10-second countdown
 - Let the user cancel with Ctrl+C
+- Update the system and install all required packages (epel-release, perl, curl, screen)
 - Install cPanel inside a `screen` session
 - Wait for ENTER at the end
 - Suggest a reboot
