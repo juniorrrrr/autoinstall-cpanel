@@ -1,81 +1,85 @@
 # 🛠️ AutoInstall cPanel for AlmaLinux 8 & 9
 
-This script automatically updates the system, installs all required dependencies, and installs **cPanel & WHM** on **AlmaLinux 8 or 9** during the **first root login** via SSH.
+This open-source script automates the full installation of **cPanel & WHM** on **AlmaLinux 8 or 9** upon the first SSH login as root.
 
-> ✅ Ideal for VPS templates, automatic deployments, or provisioning scripts.
+Originally developed by [ServerSP](https://serversp.com), an IaaS provider focused on high-performance infrastructure and low-latency connectivity for LATAM and Brazil.
 
 ---
 
-## 🚀 Features
+## 🚀 What It Does
 
 - ✅ Detects AlmaLinux 8 or 9
-- ✅ Shows a countdown with **Ctrl+C cancel option**
-- ✅ Updates system packages and installs all required dependencies
-- ✅ Installs cPanel inside an interactive `screen` session
-- ✅ Pauses at the end and **asks for confirmation before reboot**
-- ✅ Cleans up all files and `.bash_profile` entries after execution
+- ✅ Displays a clear countdown before starting (with Ctrl+C cancel option)
+- ✅ Updates the system and installs all necessary dependencies
+- ✅ Installs cPanel inside a `screen` session with interactive output
+- ✅ Waits for user confirmation before rebooting the system
+- ✅ Removes all temporary files and installer references after completion
 
 ---
 
-## 📦 Files Included
+## 📂 Files Included
 
 | File                         | Description                                 |
 |-----------------------------|---------------------------------------------|
-| `.autoinstall-cpanel.sh`    | Full logic of the cPanel auto-installer     |
+| `.autoinstall-cpanel.sh`    | Main installer logic                        |
 | `README.md`                 | This documentation                          |
 
 ---
 
-## 🧑‍💻 How to Use
+## 📦 How to Use
 
-1. Upload the installer script:
-
+1. Upload the script to your server:
 ```bash
 cp .autoinstall-cpanel.sh /root/
 chmod +x /root/.autoinstall-cpanel.sh
 ```
 
-2. Edit `/root/.bash_profile` and **append** the following line at the end:
-
+2. Edit your `.bash_profile` and append:
 ```bash
 [ -f /root/.autoinstall-cpanel.sh ] && bash /root/.autoinstall-cpanel.sh
 ```
 
-> 📝 Do **not** overwrite `.bash_profile` if it already contains other custom logic. Just append the line.
+> Do not overwrite `.bash_profile` if it contains other startup logic — just add the line at the end.
 
-3. Done! On the first SSH login as `root`, the script will:
-- Show a message with a 10-second countdown
-- Let the user cancel with Ctrl+C
-- Update the system and install all required packages (epel-release, perl, curl, screen)
-- Install cPanel inside a `screen` session
-- Wait for ENTER at the end
-- Suggest a reboot
-- Clean up all traces from the system
+3. On first SSH login:
+- You'll see a countdown and option to cancel
+- Installation runs inside a screen session
+- You'll be asked to confirm before reboot
+- All scripts remove themselves after completion
+
+---
+
+## 🌐 Ideal Use Cases
+
+This project is suitable for:
+- VPS or dedicated server provisioning
+- Template-based deployments
 
 ---
 
 ## ⚠️ Requirements
 
 - AlmaLinux 8.4+ or 9.x (minimal or standard)
-- Internet access to `securedownloads.cpanel.net`
 - Root SSH access
+- Internet access to `securedownloads.cpanel.net`
 
 ---
 
-## 🧪 Tested On
+## ✅ Tested On
 
-- ✅ AlmaLinux 8.10 minimal
-- ✅ AlmaLinux 9.4 minimal
-- ✅ cPanel & WHM v110–128
+- AlmaLinux 8.10 (minimal)
+- AlmaLinux 9.4 (minimal)
+- cPanel versions: 110 to 128
 
 ---
 
-## 🔁 Reuse and Customization
+## 🛠️ Customization Ideas
 
-You can customize the behavior by editing:
-- The countdown timer
-- The reboot confirmation
-- Adding your hostname or license key logic
+You can adjust:
+- Countdown duration
+- Reboot behavior
+- Hostname injection
+- Integration with license activation systems
 
 ---
 
@@ -85,7 +89,8 @@ MIT © [ServerSP](https://serversp.com)
 
 ---
 
-## 🌐 Links
+## 🔗 Related Resources
 
-- [Official cPanel Installation Guide](https://docs.cpanel.net/installation-guide/)
-- [cPanel Licensing Info](https://cpanel.net/pricing/)
+- [cPanel Official Installation Guide](https://docs.cpanel.net/installation-guide/)
+- [cPanel Pricing & Licensing](https://cpanel.net/pricing/)
+- [ServerSP — Infrastructure & Servers](https://serversp.com)
